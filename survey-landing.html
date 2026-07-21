@@ -9,6 +9,15 @@
                  "Sign in" links already point to survey-in-a-box.html, which
                  matches the deployed app filename, so the sign-in path is
                  correct. No layout, copy, or demo-form changes.
+
+    2026-07-21 - VISUAL SCHEME ALIGNMENT to shift-work.com. Repainted the
+                 palette to site colors (navy #1F4E79, navy-dark #0D1F3C
+                 footer, orange #E8610A CTA/accent - the old red now aliases to
+                 orange, gold #EEAE26). Added the Shiftwork logo to the nav
+                 (absolute URL, onerror-guarded). Rebuilt the footer as a
+                 navy-dark site-style bar with full contact info + Privacy /
+                 Terms links. Kept layout, sections, fonts, and the demo-form
+                 JS intact - only design tokens and nav/footer chrome changed.
 -->
 <html lang="en">
 <head>
@@ -18,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
- --navy:#1E2761; --navy2:#2c3576; --red:#e30613; --gold:#f5a623; --orange:#e07b00;
+ --navy:#1F4E79; --navy2:#163a5c; --navy-dark:#0D1F3C; --orange:#E8610A; --red:var(--orange); --gold:#EEAE26;
  --ink:#12152a; --ink-soft:#3b4066; --muted:#7a8199; --paper:#ffffff; --wash:#f3f5fc; --hair:#e4e8f2;
  --disp:"Space Grotesk",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace; --body:"Inter",system-ui,sans-serif;
 }
@@ -37,7 +46,7 @@ a{color:inherit}
 .btn{font-family:var(--body);font-weight:600;font-size:14px;border-radius:11px;padding:10px 18px;border:1px solid var(--hair);background:#fff;color:var(--navy);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .14s;}
 .btn:hover{background:var(--wash);}
 .btn.red{background:var(--red);color:#fff;border-color:var(--red);}
-.btn.red:hover{background:#c40010;}
+.btn.red:hover{background:#c4510a;}
 .btn.big{padding:14px 24px;font-size:15px;border-radius:13px;}
 @media(max-width:820px){.nav-links a:not(.btn){display:none;}}
 /* hero */
@@ -48,7 +57,7 @@ a{color:inherit}
  border-bottom:1px solid var(--hair);}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:74px 24px 84px;max-width:1120px;margin:0 auto;}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);background:#fff;border:1px solid var(--hair);border-radius:100px;padding:7px 14px;}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(227,6,19,.14);}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(232,97,10,.14);}
 h1.hero-h{font-family:var(--disp);font-weight:700;font-size:47px;line-height:1.04;letter-spacing:-.03em;margin:20px 0 0;color:var(--navy);}
 h1.hero-h em{font-style:normal;color:var(--red);}
 .hero p.sub{font-size:16.5px;line-height:1.6;color:var(--ink-soft);margin:20px 0 0;max-width:46ch;}
@@ -56,7 +65,7 @@ h1.hero-h em{font-style:normal;color:var(--red);}
 .hero-trust{margin:26px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);}
 .hero-trust b{color:var(--navy);font-weight:700;}
 /* hero mock report */
-.mock{background:#fff;border:1px solid var(--hair);border-radius:20px;box-shadow:0 2px 4px rgba(18,21,42,.04),0 40px 70px -34px rgba(30,39,97,.4);padding:22px 22px 18px;}
+.mock{background:#fff;border:1px solid var(--hair);border-radius:20px;box-shadow:0 2px 4px rgba(18,21,42,.04),0 40px 70px -34px rgba(31,78,121,.4);padding:22px 22px 18px;}
 .mock-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hair);padding-bottom:13px;}
 .mock-top .t{font-family:var(--disp);font-weight:700;font-size:14px;color:var(--ink);}
 .mock-top .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--navy);border-radius:6px;padding:4px 8px;}
@@ -66,7 +75,7 @@ h1.hero-h em{font-style:normal;color:var(--red);}
 .bmk-lab{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--ink-soft);margin:0 0 6px;}
 .bmk-lab .v{font-family:var(--mono);color:var(--navy);}
 .bar{height:9px;border-radius:6px;background:#eef1f8;position:relative;overflow:hidden;}
-.bar .you{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--red),#ff5a48);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1);}
+.bar .you{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--red),#F5915A);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1);}
 .bar .bench{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--navy);}
 .bmk-foot{display:flex;gap:16px;margin:14px 0 0;font-family:var(--mono);font-size:10px;color:var(--muted);}
 .bmk-foot .k{display:flex;align-items:center;gap:6px;}
@@ -100,7 +109,7 @@ section{padding:78px 0;}
 .feat h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:15px 0 7px;color:var(--ink);}
 .feat p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-soft);}
 /* moat */
-.moat{background:linear-gradient(160deg,var(--navy) 0%, #161d4a 100%);color:#fff;border-radius:24px;padding:52px 48px;text-align:center;max-width:900px;margin:0 auto;}
+.moat{background:linear-gradient(160deg,var(--navy) 0%, #0D1F3C 100%);color:#fff;border-radius:24px;padding:52px 48px;text-align:center;max-width:900px;margin:0 auto;}
 .moat .ey{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
 .moat h2{font-family:var(--disp);font-weight:700;font-size:30px;letter-spacing:-.02em;margin:14px 0 0;line-height:1.16;}
 .moat p{font-size:16px;line-height:1.65;color:#c7cdf0;margin:18px auto 0;max-width:60ch;}
@@ -115,11 +124,11 @@ section{padding:78px 0;}
 .demo ul{list-style:none;padding:0;margin:22px 0 0;}
 .demo li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft);margin:0 0 11px;}
 .demo li .ck{color:var(--red);font-weight:700;}
-.form{background:#fff;border:1px solid var(--hair);border-radius:20px;padding:28px;box-shadow:0 30px 60px -34px rgba(30,39,97,.3);}
+.form{background:#fff;border:1px solid var(--hair);border-radius:20px;padding:28px;box-shadow:0 30px 60px -34px rgba(31,78,121,.3);}
 .field{margin:0 0 15px;}
 .field label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;}
 .field input,.field select,.field textarea{width:100%;font-family:var(--body);font-size:14.5px;color:var(--ink);border:1px solid var(--hair);border-radius:11px;padding:11px 13px;background:#fdfefe;outline:none;}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,39,97,.1);}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,78,121,.1);}
 .field.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .field textarea{resize:vertical;min-height:74px;}
 .form .note{font-size:11.5px;color:var(--muted);margin:6px 0 0;text-align:center;}
@@ -128,19 +137,27 @@ section{padding:78px 0;}
 .thanks .big{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--navy);}
 .thanks .em{width:56px;height:56px;border-radius:50%;background:#e7f7ee;color:#1c8a57;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
 /* footer */
-footer{background:var(--navy);color:#c7cdf0;padding:40px 0 32px;}
+footer{background:var(--navy-dark);color:#c7cdf0;padding:40px 0 32px;}
 .foot-in{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;}
 footer .brand{color:#fff;}footer .brand small{color:#9aa3d0;}
 footer .fl{display:flex;gap:22px;font-size:13px;flex-wrap:wrap;}
 footer a{color:#c7cdf0;text-decoration:none;}footer a:hover{color:#fff;}
 footer .legal{width:100%;border-top:1px solid #2f3768;margin-top:22px;padding-top:18px;font-family:var(--mono);font-size:10.5px;color:#8891c4;letter-spacing:.03em;}
 @media(max-width:860px){.hero-in{grid-template-columns:1fr;gap:40px;}h1.hero-h{font-size:38px;}.grid3{grid-template-columns:1fr;}.demo-in{grid-template-columns:1fr;gap:30px;}.moat{padding:40px 24px;}}
+
+/* ==== site-scheme additions 2026-07-21: nav logo + footer chrome ==== */
+.nav-brand-wrap{display:flex;align-items:center;gap:11px;text-decoration:none;}
+.nav-logo{height:34px;width:auto;display:block;flex:none;}
+.foot-org{color:#fff;font-weight:700;}
+footer .legal{line-height:1.9;}
+footer .legal a{color:#8891c4;text-decoration:none;}
+footer .legal a:hover{color:var(--orange);}
 </style>
 </head>
 <body>
 
 <div class="nav"><div class="nav-in">
-  <div class="brand">Survey <span>in a Box</span><small>by Shiftwork Solutions</small></div>
+  <a class="nav-brand-wrap" href="https://shift-work.com/" target="_blank" rel="noopener"><img class="nav-logo" src="https://shift-work.com/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" onerror="this.style.display='none'"><span class="brand">Survey <span>in a Box</span><small>by Shiftwork Solutions</small></span></a>
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#report">The report</a>
@@ -169,7 +186,7 @@ footer .legal{width:100%;border-top:1px solid #2f3768;margin-top:22px;padding-to
       <div class="bmk-row"><div class="bmk-lab"><span>Overtime pressure</span><span class="v">above avg</span></div><div class="bar"><span class="you" data-w="68%"></span><span class="bench" style="left:50%"></span></div></div>
       <div class="bmk-row"><div class="bmk-lab"><span>Schedule satisfaction</span><span class="v">below avg</span></div><div class="bar"><span class="you" data-w="41%"></span><span class="bench" style="left:58%"></span></div></div>
     </div>
-    <div class="bmk-foot"><span class="k"><span class="sw" style="background:linear-gradient(90deg,var(--red),#ff5a48)"></span>Your workforce</span><span class="k"><span class="sw" style="background:var(--navy)"></span>Benchmark</span></div>
+    <div class="bmk-foot"><span class="k"><span class="sw" style="background:linear-gradient(90deg,var(--red),#F5915A)"></span>Your workforce</span><span class="k"><span class="sw" style="background:var(--navy)"></span>Benchmark</span></div>
     <div class="reco"><b>Recommendation:</b> Night-rotation fatigue clusters on the 8-week rotation. Bring the two top-rated schedules into a selection workshop before adjusting overtime policy.</div>
   </div>
 </div></header>
@@ -251,13 +268,21 @@ footer .legal{width:100%;border-top:1px solid #2f3768;margin-top:22px;padding-to
 
 <footer><div class="wrap">
   <div class="foot-in">
-    <div class="brand">Survey <span style="color:#ff6a5a">in a Box</span><small>by Shiftwork Solutions LLC</small></div>
+    <div class="brand">Survey <span>in a Box</span><small>by Shiftwork Solutions LLC</small></div>
     <div class="fl">
       <a href="#how">How it works</a><a href="#report">The report</a><a href="#why">Why us</a>
       <a href="survey-in-a-box.html">Sign in</a><a href="#demo">Request a demo</a>
     </div>
   </div>
-  <div class="legal">Shiftwork Solutions LLC · www.shift-work.com · (415) 265-1621 · Achieve operational excellence with schedules designed around your workforce.</div>
+  <div class="legal">
+    <span class="foot-org">Shiftwork Solutions LLC</span> ·
+    <a href="tel:+14152651621">(415) 265-1621</a> ·
+    <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a> ·
+    <a href="https://shift-work.com/" target="_blank" rel="noopener">shift-work.com</a> ·
+    <a href="https://shift-work.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> ·
+    <a href="https://shift-work.com/terms-of-use/" target="_blank" rel="noopener">Terms of Use</a> ·
+    &copy; 2026 Shiftwork Solutions LLC
+  </div>
 </div></footer>
 
 <script>
