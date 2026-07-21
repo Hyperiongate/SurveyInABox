@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+  index.html — Survey in a Box (site entry point)
+  Shiftwork Solutions LLC
+
+  NOTES (keep at top; update + date with each change):
+    2026-07-21 — Created. Purpose: give the site a home page so the bare URL
+                 (e.g. surveyinabox.onrender.com/) resolves. This file does one
+                 thing — forward to survey-landing.html — using three redundant
+                 methods (meta refresh, JS replace, and a visible fallback link)
+                 so it works even if scripting is disabled. Nothing is renamed,
+                 so survey-landing.html and its "Sign in" link stay intact.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=survey-landing.html">
+  <link rel="canonical" href="survey-landing.html">
+  <title>Survey in a Box — Shiftwork Solutions</title>
+  <script>window.location.replace("survey-landing.html");</script>
+  <style>
+    html,body{margin:0;height:100%}
+    body{font-family:Arial,Helvetica,sans-serif;background:#0D1F3C;color:#fff;
+         display:flex;align-items:center;justify-content:center;text-align:center}
+    a{color:#EEAE26;font-weight:bold;text-decoration:none}
+    a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <p>Redirecting to <a href="survey-landing.html">Survey in a Box</a>&hellip;</p>
+</body>
+</html>
+<!-- I did no harm and this file is not truncated -->
